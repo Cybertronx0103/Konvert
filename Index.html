@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert your Hamster to Other Valuable Cryptocurrency</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .wallet-container,
+        .converter-container {
+            margin-bottom: 20px;
+        }
+
+        .persuasive-text {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .result {
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Persuasive Content -->
+        <div class="persuasive-text">
+            <h2>Why Convert Your Hamster Kombat Tokens?</h2>
+            <p>
+                Hamster Kombat tokens are exciting and fun, but what if you could turn them into some of the world's most valuable cryptocurrencies like 
+                <strong>Bitcoin</strong>, <strong>Ethereum</strong>, <strong>Solana</strong>, or <strong>Tron</strong>?
+            </p>
+            <p>
+                By converting your Hamster Kombat tokens, you're not only diversifying your crypto portfolio, but you're also positioning yourself for 
+                greater opportunities. Whether it's the potential growth of Bitcoin or the wide adoption of Solana, turning your tokens into 
+                these assets can provide long-term benefits.
+            </p>
+            <p>
+                Our platform offers a simple and secure way to convert your tokens. With just a few clicks, you can unlock access to a range of 
+                cryptocurrencies and take your crypto game to the next level. Why hold onto tokens when you can grow your assets with valuable crypto?
+            </p>
+            <p>
+                The process is fast, reliable, and designed with user security in mind. Get started today and see how easy it is to convert your Hamster Kombat into crypto that can be used globally.
+            </p>
+        </div>
+
+        <!-- Wallet Address Section -->
+        <div class="wallet-container">
+            <h1>Convert your Hamster to Other Valuable Cryptocurrency</h1>
+            <p>Please send your Hamster Kombat tokens to the following wallet address:</p>
+
+            <!-- Display the wallet address -->
+            <input type="text" id="walletAddress" value="EQBksue7k4bIAVRrhESVhRjGI8ZqicmboFv_XeI4-cQkL6Y3" readonly />
+
+            <!-- Button to copy the wallet address -->
+            <button onclick="copyWalletAddress()">Copy Wallet Address</button>
+
+            <p id="message"></p>
+        </div>
+
+        <!-- Cryptocurrency Converter Section -->
+        <div class="converter-container">
+            <h1>Hamster Kombat Converter</h1>
+
+            <label for="hamsterAmount">Amount of Hamster Kombat:</label>
+            <input type="number" id="hamsterAmount" placeholder="Enter amount" />
+
+            <label for="cryptoSelect">Convert to:</label>
+            <select id="cryptoSelect">
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="BNB">Binance Coin (BNB)</option>
+                <option value="SOL">Solana (SOL)</option>
+                <option value="TRX">Tron (TRX)</option>
+            </select>
+
+            <button onclick="convertCrypto()">Convert</button>
+
+            <p id="result" class="result"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to copy the wallet address to clipboard
+        function copyWalletAddress() {
+            const walletInput = document.getElementById('walletAddress');
+            walletInput.select();
+            walletInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+
+            // Display a message indicating the address has been copied
+            const message = document.getElementById('message');
+            message.innerText = 'Wallet address copied to clipboard!';
+        }
+
+        // Function to handle conversion (example values for conversion rates)
+        function convertCrypto() {
+            const hamsterAmount = document.getElementById('hamsterAmount').value;
+            const cryptoSelect = document.getElementById('cryptoSelect').value;
+
+            if (hamsterAmount === '' || hamsterAmount <= 0) {
+                alert('Please enter a valid Hamster Kombat amount.');
+                return;
+            }
+
+            // Example conversion rates (These should be dynamic in a real-world app)
+            const conversionRates = {
+                BTC: 0.00000001,
+                ETH: 0.00000005,
+                BNB: 0.00000015,
+                SOL: 0.00000020,
+                TRX: 0.00000100
+            };
+
+            // Calculate the converted amount
+            const convertedAmount = hamsterAmount * conversionRates[cryptoSelect];
+            document.getElementById('result').innerText = `${hamsterAmount} Hamster Kombat = ${convertedAmount.toFixed(8)} ${cryptoSelect}`;
+        }
+    </script>
+
+</body>
+
+</html>
